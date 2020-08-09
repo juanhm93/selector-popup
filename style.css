@@ -114,3 +114,48 @@ section > img{
         text-align: center;
     }
 }
+
+/* #0aaac0 */
+/* transform: rotate(90deg); */
+
+/* Nuevo css */
+
+.complemento{
+    width: 40%;
+    height: 300px;
+    margin: 20px 0 0 50px;
+    border: 1px solid #e0e0e0;
+}
+
+.selector{
+    width: 40%;
+    height: 50px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 0 50px;
+}
+
+.selector__content{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+.selector__content > img{
+    margin-right: 10px;
+}
+.selector__content .selector__content--text{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.selector__arrow{
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    transform: rotate(90deg);
+}
+
+.modals{
+    width: 40%;
+    height: 50%;
+    border: 1px solid black;
+}
