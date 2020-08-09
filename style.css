@@ -134,6 +134,7 @@ section > img{
     display: flex;
     justify-content: space-between;
     margin: 20px 0 0 50px;
+    cursor: pointer;
 }
 
 .selector__content{
@@ -142,13 +143,17 @@ section > img{
     cursor: pointer;
 }
 .selector__content > img{
-    margin: 0 10px;
 }
 .selector__content .selector__content--text{
     font-family: Arial, Helvetica, sans-serif;
+    color: #727272;
 }
 .selector__content .selector__content--text p{
     font-size: 15px;
+}
+#selector .selector__content--text p{
+    font-size: 13px;
+    font-weight: 700;
 }
 .selector__arrow{
     display: flex;
@@ -157,18 +162,51 @@ section > img{
     transform: rotate(90deg);
 }
 
-.modals{
-    width: 50%;
-    height: 50%;
-    border: 1px solid black;
-}
 
 #modal .selector__content{
     padding: 5px 0px;
 }
 #modal .selector__content:hover{
-    background-color: red;
+    background-color: #0aaac0;
 }
 #modal .selector__content .selector__content--text span{
     font-weight: 400;
+}
+
+.special-icons{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    fill: #adadad;
+}
+#modal .selector__content:hover  .special-icons{
+    fill: #fff;
+}
+#modal .selector__content:hover .selector__content--text{
+    color: #fff;
+}
+
+.modal-selector{
+    width: 100%;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    height: 100vh;
+    top: 0;
+    left: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modals{
+    width: 35%;
+    height: 40%;
+    border: 1px solid black;
+    position: relative;
+    transition: transform 2s;
+    transform: translateY(0%);
+}
+.selector-close{
+    transform: translateY(-50%);
 }

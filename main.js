@@ -31,65 +31,43 @@
 
 // });
 
-let data = [
-    {
-        id: 1,
-        title: "No require",
-        subtitle: "",
-        description: "Para tu servicio no necesitas ninguno en especial.",
-        Selection: false,
-        image: "img/senal-de-stop.svg"
-    },
-    {
-        id: 2,
-        title: "Sobre",
-        subtitle: "(Carta u Oficio)",
-        description: "Si necesitas enviar documentos, esta es tu mejor opcion.",
-        Selection: true,
-        image: "img/sobre.svg"
-    },
-    {
-        id: 3,
-        title: "Maleta",
-        subtitle: "(40x38x38 cms)",
-        description: "Ideal para productos que no superen los 38 cms.",
-        Selection: false,
-        image: "img/entrega.svg"
-    },
-    {
-        id: 4,
-        title: "Baul o maletero",
-        subtitle: "(30x30x30 cms)",
-        description: "Ideal para paquetes pequenos como una caja de zapatos.",
-        Selection: false,
-        image: "img/entrega.svg"
-    },
-    {
-        id: 5,
-        title: "Parrilla",
-        description: "Ideal si necesitas llevar paquetes de hasta 50x50x50cms.",
-        Selection: false,
-        image: "img/entrega.svg"
-    }
-];
+import {data} from './array.js';
+let modal = document.getElementById("modal");
+let selector = document.getElementById("selector");
+let abrir = document.querySelectorAll(".selector")[0];
+let modalS = document.querySelectorAll(".modal-selector")[0];
 
+    console.log(data);
 document.addEventListener("DOMContentLoaded", function(event) {
-       let modal = document.getElementById("modal");
-       let selector = document.getElementById("selector");
        const toShow = data.find(el => el.Selection) || null;
         console.log(toShow);
-       selector.innerHTML +=  '<img src='+toShow.image+' width="40px" alt="">'+
+       selector.innerHTML +=  toShow.image+
                                 '<div class="selector__content--text">'+
-                                ' <h5>'+toShow.title+' <span>'+toShow.subtitle+'</span> </h5> </div>';
+                                ' <p>'+toShow.title+' <span>'+toShow.subtitle+'</span> </p> </div>';
 
        data.forEach(element => {
            modal.innerHTML +=   ' <div class="selector__content">'+
-                                '<img src='+element.image+' width="40px" alt="">'+
+                                element.image+
                                 '<div class="selector__content--text">'+
                                 ' <h5>'+element.title+' <span>'+element.subtitle+'</span> </h5>'+
                                 '<p>'+element.description+'</p></div></div>'
 
        });
-    //    modal.appendChild(div);
-    //    console(modal);
+    
   });
+
+
+abrir.addEventListener("click",function(e){
+    console.log(modalS.style.visibility);    
+    if(modalS.style.visibility === "hidden"){
+        e.preventDefault();
+            modalS.style.visibility = "visible";
+            modal.classList.toggle("selector-close");
+    }else{
+        modal.classList.toggle("selector-close");
+    setTimeout(function(){
+        modalS.style.visibility = "hidden";
+    },1000)
+    }
+
+});
