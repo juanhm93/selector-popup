@@ -139,13 +139,16 @@ section > img{
 .selector__content{
     display: flex;
     align-items: center;
-    margin-left: 10px;
+    cursor: pointer;
 }
 .selector__content > img{
-    margin-right: 10px;
+    margin: 0 10px;
 }
 .selector__content .selector__content--text{
     font-family: Arial, Helvetica, sans-serif;
+}
+.selector__content .selector__content--text p{
+    font-size: 15px;
 }
 .selector__arrow{
     display: flex;
@@ -155,7 +158,17 @@ section > img{
 }
 
 .modals{
-    width: 40%;
+    width: 50%;
     height: 50%;
     border: 1px solid black;
+}
+
+#modal .selector__content{
+    padding: 5px 0px;
+}
+#modal .selector__content:hover{
+    background-color: red;
+}
+#modal .selector__content .selector__content--text span{
+    font-weight: 400;
 }

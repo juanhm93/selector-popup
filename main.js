@@ -37,6 +37,7 @@ let data = [
         title: "No require",
         subtitle: "",
         description: "Para tu servicio no necesitas ninguno en especial.",
+        Selection: false,
         image: "img/senal-de-stop.svg"
     },
     {
@@ -44,6 +45,7 @@ let data = [
         title: "Sobre",
         subtitle: "(Carta u Oficio)",
         description: "Si necesitas enviar documentos, esta es tu mejor opcion.",
+        Selection: true,
         image: "img/sobre.svg"
     },
     {
@@ -51,6 +53,7 @@ let data = [
         title: "Maleta",
         subtitle: "(40x38x38 cms)",
         description: "Ideal para productos que no superen los 38 cms.",
+        Selection: false,
         image: "img/entrega.svg"
     },
     {
@@ -58,16 +61,33 @@ let data = [
         title: "Baul o maletero",
         subtitle: "(30x30x30 cms)",
         description: "Ideal para paquetes pequenos como una caja de zapatos.",
+        Selection: false,
         image: "img/entrega.svg"
     },
     {
         id: 5,
         title: "Parrilla",
         description: "Ideal si necesitas llevar paquetes de hasta 50x50x50cms.",
+        Selection: false,
         image: "img/entrega.svg"
     }
 ];
 
 document.addEventListener("DOMContentLoaded", function(event) {
-        
+       let modal = document.getElementById("modal");
+       let selector = document.getElementById("selector");
+       selector.innerHTML +=  '<img src='+data[1]["image"]+' width="40px" alt="">'+
+                                '<div class="selector__content--text">'+
+                                ' <h5>'+data[1]["title"]+' <span>'+data[1]["subtitle"]+'</span> </h5> </div>';
+
+       data.forEach(element => {
+           modal.innerHTML +=   ' <div class="selector__content">'+
+                                '<img src='+element.image+' width="40px" alt="">'+
+                                '<div class="selector__content--text">'+
+                                ' <h5>'+element.title+' <span>'+element.subtitle+'</span> </h5>'+
+                                '<p>'+element.description+'</p></div></div>'
+
+       });
+    //    modal.appendChild(div);
+    //    console(modal);
   });
