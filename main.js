@@ -76,9 +76,11 @@ let data = [
 document.addEventListener("DOMContentLoaded", function(event) {
        let modal = document.getElementById("modal");
        let selector = document.getElementById("selector");
-       selector.innerHTML +=  '<img src='+data[1]["image"]+' width="40px" alt="">'+
+       const toShow = data.find(el => el.Selection) || null;
+        console.log(toShow);
+       selector.innerHTML +=  '<img src='+toShow.image+' width="40px" alt="">'+
                                 '<div class="selector__content--text">'+
-                                ' <h5>'+data[1]["title"]+' <span>'+data[1]["subtitle"]+'</span> </h5> </div>';
+                                ' <h5>'+toShow.title+' <span>'+toShow.subtitle+'</span> </h5> </div>';
 
        data.forEach(element => {
            modal.innerHTML +=   ' <div class="selector__content">'+
