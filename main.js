@@ -18,7 +18,11 @@ let modalS = document.querySelectorAll(".modal-selector")[0];
                     addDataModal();
                     deleteSelector();
                     addDataSelector();
-                    modalFunction();
+                    modal.classList.toggle("selector-close");
+                    selector.classList.remove("prueba");
+                    setTimeout(function(){
+                        modalS.style.visibility = "hidden";
+                    },1000);
                     });
                      
             }
@@ -53,7 +57,7 @@ let modalS = document.querySelectorAll(".modal-selector")[0];
            
     }
 
-    function modalFunction(){
+    function showHiddenSelector(){
         
         if(selector.classList.length <= 1){
             modalS.style.visibility = "visible";
@@ -66,7 +70,7 @@ let modalS = document.querySelectorAll(".modal-selector")[0];
             setTimeout(function(){
                 modalS.style.visibility = "hidden";
             },1000);
-            console.log("opcion 1",selector.classList)    
+            console.log("opcion 2",selector.classList)    
         }   
         
     }
@@ -74,7 +78,7 @@ let modalS = document.querySelectorAll(".modal-selector")[0];
     document.addEventListener("DOMContentLoaded", inicio);
     
     
-    abrir.addEventListener("click",modalFunction);
+    abrir.addEventListener("click",showHiddenSelector);
     
     
     function seleccionador(e){
