@@ -195,7 +195,7 @@ section > img{
     top: 0;
     left: 0;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     margin-right: 500px;
 }
@@ -211,4 +211,11 @@ section > img{
 }
 .selector-close{
     transform: translateY(-70%);
+}
+
+
+@media screen and (max-width: 1000px){
+    .modals{
+        left: 450px;
+    }
 }
