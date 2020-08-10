@@ -142,8 +142,7 @@ section > img{
     align-items: center;
     cursor: pointer;
 }
-.selector__content > img{
-}
+
 .selector__content .selector__content--text{
     font-family: Arial, Helvetica, sans-serif;
     color: #727272;

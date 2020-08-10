@@ -32,61 +32,61 @@
 // });
 
 import {data} from './array.js';
+import { element } from 'prop-types';
 let modal = document.getElementById("modal");
-let modals = data
 let selector = document.getElementById("selector");
 let abrir = document.querySelectorAll(".selector")[0];
 let modalS = document.querySelectorAll(".modal-selector")[0];
 
-// function seleccionador(variable){
-    //     console.log(variable);
-    // }
     function ahora(){
         const lista = modal.children;
         console.log("lista");
-    
-        for(let i=0 ; i < lista.length; i++){  
-            lista[i].addEventListener("click",function(e){
-                let j = lista[i].getAttribute("value");
-                for(let i=0 ; i < lista.length; i++){
-                    if(i == j-1){
-                        data[j-1]['selection'] = true;
-                    } 
-                    data[i]['selection'] = false;
-                }
-            });
-        }
-    }
-    // console.log(data);
-    document.addEventListener("DOMContentLoaded", function(event) {
-        const toShow = data.find(el => el.selection) || null;
-        // console.log(toShow);
-        selector.innerHTML +=  toShow.image+
-        '<div class="selector__content--text">'+
-        ' <p>'+toShow.title+' <span>'+toShow.subtitle+'</span> </p> </div>';
         
-        data.forEach(element => {
-            modal.innerHTML +=   ' <div class="selector__content prueba" value="'+element.id+'">'+
-            element.image+
-            '<div class="selector__content--text">'+
-            ' <h5>'+element.title+' <span>'+element.subtitle+'</span> </h5>'+
-            '<p>'+element.description+'</p></div></div>'
+            for(let i=0 ; i < lista.length; i++){  
+                lista[i].addEventListener("click",function(e){
+                
+                lista[i].setAttribute("alt",true);
+               console.log("atributo ",lista[i].getAttribute("value"));
+               console.log(lista[i]); 
+            //    recorrido(lista[i].getAttribute("value"));
+               // let j = lista[i].getAttribute("value");
+                // for(let i=0 ; i < lista.length; i++){
+                    //     if(i == j-1){
+                        
+                        
+                        // data[j-1]['selection'] = true;
+                        // console.log(data[j-1]);
+                        //     } 
+                        //     data[i]['selection'] = false;
+                        // }
+                    });
+            }
+    }
             
+            function inicio() {
+                const toShow = data.find(el => el.selection) || null;
+                selector.innerHTML +=  toShow.image+
+                '<div class="selector__content--text">'+
+                ' <p>'+toShow.title+' <span>'+toShow.subtitle+'</span> </p> </div>';
+                
+                data.forEach(element => {
+                    modal.innerHTML +=   ' <div class="selector__content prueba" value="'+element.id+'" alt="'+element.selection+'">'+
+                    element.image+
+                    '<div class="selector__content--text">'+
+                    ' <h5>'+element.title+' <span>'+element.subtitle+'</span> </h5>'+
+                    '<p>'+element.description+'</p></div></div>'
+                    
         });
-        ahora()
-        console.log(data);
-    });
-    
-    
-    abrir.addEventListener("click",function(e){
+        ahora();
+    }
+
+    function modalFunction(){
         
         if(selector.classList.length <= 1){
-            // console.log(selector.classList.length);
             modalS.style.visibility = "visible";
             modal.classList.toggle("selector-close");
             selector.classList.add("prueba");
         }else{
-            // console.log(selector.classList[0]);
             modal.classList.toggle("selector-close");
             selector.classList.remove("prueba");
             setTimeout(function(){
@@ -94,5 +94,37 @@ let modalS = document.querySelectorAll(".modal-selector")[0];
             },1000);
         }   
         
-    });
+    }
     
+    document.addEventListener("DOMContentLoaded", inicio);
+    
+    
+    abrir.addEventListener("click",modalFunction);
+    
+    
+    function seleccionador(e){
+        const lista = modal.children;
+        const hijo = lista.children;
+
+        const referencia = document.querySelectorAll("div.modals > div.selector__content > svg");
+
+        console.log(e.target);
+    
+        for(let i=0 ; i < lista.length; i++){  
+            for(let j = 0; j < lista[i].children.length; j++ ){
+                for(let k = 0; k < lista[i].children.length; k++ ){
+                    if(e.target == lista[i] || e.target == lista[i].children || e.target == lista[i].children.item(1).children.item(0)){
+                            console.log(lista[i].children.length); 
+                               console.log(1);
+                               console.log(lista[i].children.item(1).children.item(0));
+                           }
+                }
+
+            }
+
+        }
+    }
+    
+    // window.addEventListener( "click", seleccionador)
+
+  
