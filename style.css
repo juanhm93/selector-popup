@@ -189,24 +189,26 @@ section > img{
 .modal-selector{
     width: 100%;
     visibility: hidden;
-    position: fixed;
-    z-index: 1000;
-    height: 100vh;
+    /* position: fixed; */
+    z-index: 1;
+    /* height: 100vh; */
     top: 0;
-    left: 160px;
+    left: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    margin-right: 500px;
 }
 
 .modals{
-    width: 35%;
-    height: 40%;
+    /* width: 35%; */
+    /* height: 100%; */
     border: 1px solid black;
-    position: relative;
+    position: absolute;
+    left: 615px;
     transition: transform 2s;
     transform: translateY(0%);
 }
 .selector-close{
-    transform: translateY(-50%);
+    transform: translateY(-70%);
 }
