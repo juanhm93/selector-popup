@@ -16,6 +16,9 @@ let modalS = document.querySelectorAll(".modal-selector")[0];
                     recorrido(lista[i].getAttribute("value"))
                     deleteModal();
                     addDataModal();
+                    deleteSelector();
+                    addDataSelector();
+                    modalFunction();
                     });
                      
             }
@@ -33,14 +36,19 @@ let modalS = document.querySelectorAll(".modal-selector")[0];
             
             });
     }
-
-
-    function inicio() {
+    function deleteSelector(){
+        selector.innerHTML=''
+    }
+    function addDataSelector(){
             const toShow = data.find(el => el.selection) || null;
             selector.innerHTML +=  toShow.image+
             '<div class="selector__content--text">'+
             ' <p>'+toShow.title+' <span>'+toShow.subtitle+'</span> </p> </div>';
-            
+
+    }
+
+    function inicio() {
+            addDataSelector();
             addDataModal();
            
     }
@@ -50,13 +58,15 @@ let modalS = document.querySelectorAll(".modal-selector")[0];
         if(selector.classList.length <= 1){
             modalS.style.visibility = "visible";
             modal.classList.toggle("selector-close");
-            selector.classList.add("prueba");      
+            selector.classList.add("prueba");  
+            console.log("opcion 1",selector.classList)    
         }else{
             modal.classList.toggle("selector-close");
             selector.classList.remove("prueba");
             setTimeout(function(){
                 modalS.style.visibility = "hidden";
             },1000);
+            console.log("opcion 1",selector.classList)    
         }   
         
     }
