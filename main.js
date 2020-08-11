@@ -74,9 +74,6 @@ function recorrido(item){
     }
     
 }
-
-    
-    // document.addEventListener("DOMContentLoaded", inicio);
     
     addDataSelector();
     addDataModal();
