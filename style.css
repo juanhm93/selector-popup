@@ -4,18 +4,16 @@
     box-sizing: border-box;
 }
 
-
-.complemento{
+.complement, .selector{
     width: 40%;
-    height: 300px;
-    margin: 20px 0 0 50px;
     border: 1px solid #e0e0e0;
 }
-
+.complement{
+    height: 300px;
+    margin: 20px 0 0 50px;
+}
 .selector{
-    width: 40%;
     height: 50px;
-    border: 1px solid #e0e0e0;
     display: flex;
     justify-content: space-between;
     margin: 20px 0 0 50px;
@@ -45,8 +43,6 @@
     margin-right: 15px;
     transform: rotate(90deg);
 }
-
-
 .selector__content-modal{
     padding: 5px 0px;
 }
@@ -56,7 +52,6 @@
 .selector__content-modal .selector__content--text span{
     font-weight: 400;
 }
-
 .special-icons{
     width: 40px;
     height: 40px;

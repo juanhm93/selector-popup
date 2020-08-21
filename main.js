@@ -22,7 +22,7 @@ function addDataSelector(){
         selector.innerHTML=''
         const toShow = data.find(el => el.selection) || "";
         selector.innerHTML +=  toShow.image+
-        '<div class="selector__content--text ">'+
+        '<div class="selector__content--text">'+
         ' <p>'+toShow.title+' <span>'+toShow.subtitle+'</span> </p> </div>';
 
 }
@@ -31,16 +31,20 @@ function addDataSelector(){
 
 function ahora(){
     const lista = modal.children;
-    console.log("lista");   
+    // let optionSelector = document.querySelector("#selector.selector__content--text");
+    let optionActive = document.querySelector(".selector__content-modal.active");
+    let num = 0;
+ 
         for(let i=0 ; i < lista.length; i++){  
             lista[i].addEventListener("click",function(e){
-    
-                console.log(selector.classList); 
-                recorrido(lista[i].getAttribute("value"))
-                addDataModal();
+
+                num = this.getAttribute("value") - 1;
+                tacks(num);
+                optionActive.classList.remove("active");
+                this.classList.add("active");
+                selector.children[0].innerHTML =  data[num]["image"];
+                selector.children[1].innerHTML =  ' <p>'+data[num]["title"]+' <span>'+data[num]["subtitle"]+'</span> </p>';  
                 showHiddenSelector();
-                addDataSelector();
-                console.log(selector.classList); 
                 });
                     
         }
@@ -48,30 +52,25 @@ function ahora(){
 
 function showHiddenSelector(){
     
-    console.log("clases ",selector.getAttribute("value")) 
-
-    if(selector.getAttribute("value") == "false"){
+    
+    if(modal.classList.length > 1){
         modalS.style.visibility = "visible";
-        modal.classList.toggle("selector-close");
-        selector.setAttribute("value",true);  
-        console.log("opcion 1",selector)    
+        modal.classList.toggle("selector-close");      
     }else{
         modal.classList.toggle("selector-close");
         setTimeout(function(){
             modalS.style.visibility = "hidden";
-        },1000);
-        selector.setAttribute("value",false);
-        console.log("opcion 2",selector)    
+        },1000);    
     }   
     
 }
-function recorrido(item){
-    console.log("item",item);
+function tacks(item){
+    
     for(let i=0; i < data.length; i++ ){
         if(data[i]["id"]  == item){
-            data[i]["selection"] = true; 
+            data[i]["selection"] = "active"; 
         }else{
-            data[i]["selection"] = false; 
+            data[i]["selection"] = ""; 
         }
     }
     
@@ -79,11 +78,8 @@ function recorrido(item){
     
     addDataSelector();
     addDataModal();
-    let optionSelector = document.querySelectorAll(".selector__content-modal");
-    let numberOfOptions = optionSelector.length;
-    console.log("numero de opciones",numberOfOptions);
     abrir.addEventListener("click",showHiddenSelector);
-    window.addEventListener( "click", ahora)
+    window.addEventListener( "click", ahora);
 
 
   
