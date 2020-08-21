@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-/* #0aaac0 */
-/* transform: rotate(90deg); */
-
-/* Nuevo css */
 
 .complemento{
     width: 40%;
@@ -26,17 +22,17 @@
     cursor: pointer;
 }
 
-.selector__content{
+.selector__content, .selector__content-modal{
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-.selector__content .selector__content--text{
+.selector__content .selector__content--text,.selector__content-modal .selector__content--text{
     font-family: Arial, Helvetica, sans-serif;
     color: #727272;
 }
-.selector__content .selector__content--text p{
+.selector__content .selector__content--text p,.selector__content-modal .selector__content--text p{
     font-size: 15px;
 }
 #selector .selector__content--text p{
@@ -51,13 +47,13 @@
 }
 
 
-#modal .selector__content{
+.selector__content-modal{
     padding: 5px 0px;
 }
-#modal .selector__content:hover{
+.selector__content-modal:hover, .selector__content-modal.active{
     background-color: #0aaac0;
 }
-#modal .selector__content .selector__content--text span{
+.selector__content-modal .selector__content--text span{
     font-weight: 400;
 }
 
@@ -67,19 +63,15 @@
     margin: 0 10px;
     fill: #adadad;
 }
-#modal .selector__content:hover  .special-icons{
+.selector__content-modal:hover  .special-icons,.selector__content-modal:hover .selector__content--text,.selector__content-modal.active > .special-icons,.selector__content-modal.active > .selector__content--text{
     fill: #fff;
-}
-#modal .selector__content:hover .selector__content--text{
-    color: #fff;
+    color: white;
 }
 
 .modal-selector{
     width: 100%;
     visibility: hidden;
-    /* position: fixed; */
     z-index: 1;
-    /* height: 100vh; */
     top: 0;
     left: 0;
     display: flex;
@@ -89,8 +81,6 @@
 }
 
 .modals{
-    /* width: 35%; */
-    /* height: 100%; */
     border: 1px solid black;
     position: absolute;
     left: 615px;

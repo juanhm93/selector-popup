@@ -5,10 +5,12 @@ let selector = document.getElementById("selector");
 let abrir = document.querySelectorAll(".selector")[0];
 let modalS = document.querySelectorAll(".modal-selector")[0];
 
+
+
 function addDataModal(){
     modal.innerHTML='';
     data.forEach(element => {
-        modal.innerHTML +=   ' <div class="selector__content" value="'+element.id+'" alt="'+element.selection+'">'+
+        modal.innerHTML +=   ' <div class="selector__content-modal '+element.selection+'" value="'+element.id+'" alt="">'+
         element.image+
         '<div class="selector__content--text">'+
         ' <h5>'+element.title+' <span>'+element.subtitle+'</span> </h5>'+
@@ -18,9 +20,9 @@ function addDataModal(){
 }
 function addDataSelector(){
         selector.innerHTML=''
-        const toShow = data.find(el => el.selection) || null;
+        const toShow = data.find(el => el.selection) || "";
         selector.innerHTML +=  toShow.image+
-        '<div class="selector__content--text">'+
+        '<div class="selector__content--text ">'+
         ' <p>'+toShow.title+' <span>'+toShow.subtitle+'</span> </p> </div>';
 
 }
@@ -77,7 +79,9 @@ function recorrido(item){
     
     addDataSelector();
     addDataModal();
-    
+    let optionSelector = document.querySelectorAll(".selector__content-modal");
+    let numberOfOptions = optionSelector.length;
+    console.log("numero de opciones",numberOfOptions);
     abrir.addEventListener("click",showHiddenSelector);
     window.addEventListener( "click", ahora)
 
