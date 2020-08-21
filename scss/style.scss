@@ -1,5 +1,8 @@
-$activecolor: #0aaac0;
-$svgcolor: #adadad;
+$activeColor: #0aaac0;
+$svgColor: #adadad;
+$border: #e0e0e0;
+$textColor: #727272;
+
 *{
     margin: 0;
     padding: 0;
@@ -8,7 +11,7 @@ $svgcolor: #adadad;
 
 .complement, .selector{
     width: 40%;
-    border: 1px solid #e0e0e0;
+    border: 1px solid $border;
 }
 .complement{
     height: 300px;
@@ -30,7 +33,7 @@ $svgcolor: #adadad;
 
 .selector__content .selector__content--text,.selector__content-modal .selector__content--text{
     font-family: Arial, Helvetica, sans-serif;
-    color: #727272;
+    color: $textColor;
 }
 .selector__content .selector__content--text p,.selector__content-modal .selector__content--text p{
     font-size: 15px;
@@ -49,7 +52,7 @@ $svgcolor: #adadad;
     padding: 5px 0px;
 }
 .selector__content-modal:hover, .selector__content-modal.active{
-    background-color: $activecolor;
+    background-color: $activeColor;
 }
 .selector__content-modal .selector__content--text span{
     font-weight: 400;
@@ -58,13 +61,15 @@ $svgcolor: #adadad;
     width: 40px;
     height: 40px;
     margin: 0 10px;
-    fill: $svgcolor;
+    fill: $svgColor;
 }
-.selector__content-modal:hover  .special-icons,.selector__content-modal:hover .selector__content--text,.selector__content-modal.active > .special-icons,.selector__content-modal.active > .selector__content--text{
-    fill: #fff;
-    color: white;
+.selector__content-modal:hover,.selector__content-modal.active{
+    .special-icons, .selector__content--text{
+        fill: #fff;
+        color: white;
+    }
 }
-
+ 
 .modal-selector{
     width: 100%;
     visibility: hidden;
@@ -78,8 +83,9 @@ $svgcolor: #adadad;
 }
 
 .modals{
-    border: 1px solid black;
     position: absolute;
+    border: 1px solid $border;
+    box-shadow: 0 0 10px $textColor;
     left: 615px;
     transition: transform 2s;
     transform: translateY(0%);
